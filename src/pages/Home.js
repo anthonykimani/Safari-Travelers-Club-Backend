@@ -2,6 +2,9 @@ import LandingPage from "../components/LandingPage";
 import Phrase from "../components/Phrase";
 import Options from "../components/Options";
 import TravelCard from "../components/TravelCard";
+import Journey from "../components/Journey";
+import Find from "../components/Find";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
@@ -19,6 +22,10 @@ const Home = () => {
         <TravelCard img={"/pina-coladas.jpg"} />
         <TravelCard img={"/beach-sand.jpg"} />
         <TravelCard img={"/lion.jpg"} />
+      </div>
+      <div>
+        <Journey />
+        <Find />
       </div>
     </div>
   );
