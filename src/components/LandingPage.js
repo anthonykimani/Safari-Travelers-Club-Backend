@@ -2,7 +2,7 @@ import Navbar from "./Navbar";
 import HomeText from "./HomeText";
 import Destination from "./Destination";
 
-const LandingPage = () => {
+const LandingPage = ({destinations}) => {
   return (
     <div className="" id="landing">
       <img
@@ -12,7 +12,7 @@ const LandingPage = () => {
       />
       <Navbar />
       <HomeText />
-      <Destination />
+      <Destination destinations={destinations}/>
     </div>
   );
 };
