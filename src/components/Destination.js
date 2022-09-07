@@ -1,19 +1,39 @@
+import { data } from "autoprefixer";
 import { useState, useEffect } from "react";
 
 const Destination = ({ destinations }) => {
+  const [users, setUsers] = useState([]);
+
   const [schedule, setSchedule] = useState({
-    destination: "Maasai Mara",
+    destination_id: 2,
     time: "4am",
     day: "monday",
+    user_id: 1,
   });
 
   const areas = destinations.map((destination, index) => {
     return (
-      <option key={index} value={destination.name}>
+      <option key={index} value={destination.id}>
         {destination.name}
       </option>
     );
   });
+
+  const user = users.map((user, index) => {
+    return (
+      <option key={index} value={user.id}>
+        {user.first_name}
+      </option>
+    );
+  });
+
+  useEffect(() => {
+    fetch("http://localhost:9292/users")
+      .then((response) => response.json())
+      .then((data) => setUsers(data));
+  }, [data]);
+
+  // const id = users.length;
 
   function handleSchedule(event) {
     const name = event.target.name;
@@ -24,9 +44,13 @@ const Destination = ({ destinations }) => {
   function handleSubmit(event) {
     event.preventDefault();
     console.log(schedule);
-    // useEffect(()=>{
-    //   fetch()
-    // },[])
+    fetch(`http://localhost:9292/schedules`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(schedule),
+    });
   }
 
   return (
@@ -55,7 +79,10 @@ const Destination = ({ destinations }) => {
             <option value="saturday">saturday</option>
             <option value="sunday">sunday</option>
           </select>
-          <input type="submit" value="Button" />
+          <select name="user" id="user" onChange={handleSchedule}>
+            {user}
+          </select>
+          <input type="submit" value="Schedule Safari" />
         </form>
       </div>
       <div></div>

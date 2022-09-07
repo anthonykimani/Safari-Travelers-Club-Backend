@@ -10,7 +10,7 @@ import Footer from "../components/Footer";
 
 const Home = () => {
   const [destinations, setDestinations] = useState([]);
-  const [filteredDestination,setFilteredDestination] = useState([]);
+  const [filteredDestination, setFilteredDestination] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:9292/destinations")
@@ -18,13 +18,14 @@ const Home = () => {
       .then((data) => {
         console.log(data);
         setDestinations(data);
+        setFilteredDestination(destinations)
       });
   }, []);
 
-  function filterDestination(category){
-      const filtered = destinations.filter((destination) =>{
+  function filterDestination(category) {
+    const filtered = destinations.filter((destination) => {
       return category === destination.category;
-    })
+    });
     setFilteredDestination(filtered);
   }
 
