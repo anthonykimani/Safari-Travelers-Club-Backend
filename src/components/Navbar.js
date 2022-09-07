@@ -17,7 +17,12 @@ const Navbar = () => {
           </Link>
         </li>
       </ul>
-      <button className="text-white bg-blue-500 px-5 py-2 font-bold">Register</button>
+      <li>
+        <Link to={"/register"} className="text-white bg-blue-500 px-5 py-2 font-bold">
+          Register
+        </Link>
+      </li>
+      {/* <button className="text-white bg-blue-500 px-5 py-2 font-bold">Register</button> */}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import LandingPage from "../components/LandingPage";
 import Phrase from "../components/Phrase";
@@ -10,36 +10,49 @@ import Footer from "../components/Footer";
 
 const Home = () => {
   const [destinations, setDestinations] = useState([]);
+  const [filteredDestination,setFilteredDestination] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:9292/destinations")
-    .then((response)=>response.json())
-    .then((data) =>{
-      console.log(data);
-      setDestinations(data);
-    });
-  },[]);
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setDestinations(data);
+      });
+  }, []);
+
+  function filterDestination(category){
+      const filtered = destinations.filter((destination) =>{
+      return category === destination.category;
+    })
+    setFilteredDestination(filtered);
+  }
+
+  // filterDestination("savannah")
+  // setFilteredDestination(destinations);
 
   return (
     <div className="">
-      <LandingPage destinations={destinations}/>
+      <LandingPage destinations={destinations} />
       <Phrase />
       <div className="flex justify-center">
-        <Options name={"All"} />
-        <Options name={"Savannah"} />
-        <Options name={"Jungle"} />
-        <Options name={"Sandy Beaches"} />
+        <Options name={"all"} filter={filterDestination} />
+        <Options name={"savannah"} filter={filterDestination} />
+        <Options name={"jungle"} filter={filterDestination} />
+        <Options name={"sandy beaches"} filter={filterDestination} />
       </div>
-      <div className="flex">
-        {/* <TravelCard img={"/elephant-herd.jpg"} />
-        <TravelCard img={"/pina-coladas.jpg"} />
-        <TravelCard img={"/beach-sand.jpg"} />
-        <TravelCard img={"/lion.jpg"} /> */}
-        {/* <TravelCard img={'https://i.postimg.cc/KzP59dbh/safari-tour.jpg'} /> */}
-        {destinations.map((destination)=>{
-    console.log(destination.image);
-    return <TravelCard img={destination.image} name={destination.name} location={destination.location} price={destination.price} />
-  })}
+      <div className="grid grid-cols-4">
+        {filteredDestination.map((destination) => {
+          console.log(destination.image);
+          return (
+            <TravelCard
+              img={destination.image}
+              name={destination.name}
+              location={destination.location}
+              price={destination.price}
+            />
+          );
+        })}
       </div>
       <div>
         <Journey />
