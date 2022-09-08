@@ -67,7 +67,7 @@ const Home = () => {
         <Options name={4} filter={handleRatings} />
         <Options name={5} filter={handleRatings} /> */}
       </div>
-      <div className="grid grid-cols-4">
+      <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3">
         {filteredDestination.map((destination,index) => {
           console.log(destination.image);
           return (
