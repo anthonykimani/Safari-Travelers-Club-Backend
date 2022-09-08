@@ -53,7 +53,7 @@ const Destination = ({ destinations }) => {
   }
 
   return (
-    <div className="relative flex flex-col xsm:flex-row items-center rounded bg-white shadow-lg w-[90%] justify-around mt-48 md:mt-72 ml-5 h-72 md:h-40">
+    <div className="relative flex flex-col xsm:flex-row items-center rounded bg-white shadow-lg w-[90%] justify-around mt-72 md:mt-72 ml-5 h-72 md:h-40">
       <div className="flex flex-col justify-between h-26">
         <label htmlFor="destination">Choose a Destination:</label>
         <select name="destination" id="destination" onChange={handleSchedule} className="h-10 border-solid border border-gray-400 rounded mx-2 outline-none">
@@ -63,13 +63,13 @@ const Destination = ({ destinations }) => {
       <div className="flex flex-col justify-between h-26">
         <label htmlFor="schedule">Choose Schedule</label>
         <form onSubmit={handleSubmit} className="flex flex-col md:flex-row">
-          <select name="time" id="time" onChange={handleSchedule} className="h-10 border-solid border border-gray-400 rounded mx-2 outline-none">
+          <select name="time" id="time" onChange={handleSchedule} className="h-10 border-solid border border-gray-400 rounded mx-2 outline-none hover:border-gray-500">
             <option value="4am">4am</option>
             <option value="9am">9am</option>
             <option value="4pm">4pm</option>
             <option value="9pm">9pm</option>
           </select>
-          <select name="day" id="day" onChange={handleSchedule} className="h-10 border-solid border border-gray-400 rounded mx-2 outline-none">
+          <select name="day" id="day" onChange={handleSchedule} className="h-10 border-solid border border-gray-400 rounded mx-2 outline-none hover:border-gray-500">
             <option value="monday">monday</option>
             <option value="tuesday">tuesday</option>
             <option value="wednesday">wednesday</option>
@@ -78,10 +78,10 @@ const Destination = ({ destinations }) => {
             <option value="saturday">saturday</option>
             <option value="sunday">sunday</option>
           </select>
-          <select name="user" id="user" onChange={handleSchedule} className="h-10 border-solid border border-gray-400 rounded mx-2 outline-none">
+          <select name="user" id="user" onChange={handleSchedule} className="h-10 border-solid border border-gray-400 rounded mx-2 outline-none hover:border-gray-500">
             {user}
           </select>
-          <input type="submit" value="Schedule Safari" className="text-white bg-blue-500 px-5 py-2 font-bold" />
+          <input type="submit" value="Schedule Safari" className="text-white bg-blue-500 px-5 py-2 font-bold hover:bg-blue-700" />
         </form>
       </div>
       <div></div>

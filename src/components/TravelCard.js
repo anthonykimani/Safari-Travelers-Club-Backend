@@ -10,9 +10,11 @@ const TravelCard = ({
   filteredReview,
   index,
 }) => {
+  const [comment, setComment] = useState([]);
   const [show, setShow] = useState(false);
 
   function handleToggle() {
+    console.log("clicked")
     setShow(!show);
   }
 
@@ -25,7 +27,7 @@ const TravelCard = ({
     const ratings = reviewed_by_id.filter((element) => {
       return element.rating == event.target.value;
     });
-    console.log(ratings);
+    setComment(ratings);
   }
 
   return (
@@ -45,9 +47,17 @@ const TravelCard = ({
         </div>
         <div className="flex justify-between">
           <div>
-            <h3 onClick={handleToggle}>Ratings:</h3>
+            <h3>Ratings:</h3>
+            <i
+              class="bx bx-chevron-down-circle bx-sm"
+              onClick={handleToggle}
+            ></i>
           </div>
-          <select name="ratings" onChange={handleRatings} className="h-8 border-solid border border-gray-400 rounded mt-2 outline-none">
+          <select
+            name="ratings"
+            onChange={handleRatings}
+            className="h-8 border-solid border border-gray-400 hover:border-gray-600 rounded mt-2 outline-none"
+          >
             <option value="1">Lowest</option>
             <option value="2">Low</option>
             <option value="3">Average</option>
@@ -55,9 +65,14 @@ const TravelCard = ({
             <option value="5">Highest</option>
           </select>
         </div>
+        <div className="rounded-lg bg-white shadow-lg overflow-hidden">
+          {comment.map((element) => {
+            return <h3 className="m-3">{element.comment}</h3>;
+          })}
+        </div>
       </div>
       {/* <Ratings rating={rating} /> */}
-      <button className="bg-sky-600 text-white px-4 py-2 m-4">Book now</button>
+      <button className="bg-sky-600 text-white px-4 py-2 m-4 hover:bg-blue-700">Book now</button>
     </div>
   );
 };
