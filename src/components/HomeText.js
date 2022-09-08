@@ -1,7 +1,7 @@
 const HomeText = () => {
   return (
-    <div className="relative px-20 text-white w-3/5 ">
-      <h1 className="text-5xl p-3 font-medium">
+    <div className="relative mt-[82px] text-white w-[196] ">
+      <h1 className="text-3xl sm:text-5xl p-3 font-medium">
         Explore the Beauty of the Savannah
       </h1>
       <h4 className=" p-3">
