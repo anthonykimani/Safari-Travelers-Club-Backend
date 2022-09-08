@@ -6,7 +6,7 @@ import Options from "../components/Options";
 import TravelCard from "../components/TravelCard";
 import Journey from "../components/Journey";
 import Find from "../components/Find";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 
 const Home = () => {
   const [destinations, setDestinations] = useState([]);
@@ -42,13 +42,15 @@ const Home = () => {
     .then((response) => response.json())
     .then((data)=>setReviews(data))
   },[])
+
   
-  function handleRatings(){
-    const rated = reviews.filter((review) =>{
-    })
-    return setFilteredDestination(rated);
-    // return rated;
-  }
+  // function handleRatings(event){
+  //   console.log(reviews);
+  //   const ratings = reviews.filter((element)=>{
+  //     return element.destination_id == event.target.value;
+  //   })
+  //   console.log(ratings)
+  // }
 
   return (
     <div className="">
@@ -59,21 +61,14 @@ const Home = () => {
         <Options name={"savannah"} filter={filterDestination} />
         <Options name={"jungle"} filter={filterDestination} />
         <Options name={"sandy beaches"} filter={filterDestination} />
-        <Options name={1} filter={handleRatings} />
+        {/* <Options name={1} filter={handleRatings} />
         <Options name={2} filter={handleRatings} />
         <Options name={3} filter={handleRatings} />
         <Options name={4} filter={handleRatings} />
-        <Options name={5} filter={handleRatings} />
-        {/* <select name="ratings" onChange={()=>handleRatings()}>
-          <option value="1">Lowest</option>
-          <option value="2">Low</option>
-          <option value="3">Average</option>
-          <option value="4">High</option>
-          <option value="5">Highest</option>
-        </select> */}
+        <Options name={5} filter={handleRatings} /> */}
       </div>
       <div className="grid grid-cols-4">
-        {filteredDestination.map((destination) => {
+        {filteredDestination.map((destination,index) => {
           console.log(destination.image);
           return (
             <TravelCard
@@ -81,6 +76,8 @@ const Home = () => {
               name={destination.name}
               location={destination.location}
               price={destination.price}
+              filteredReview={reviews}
+              index={index}
             />
           );
         })}

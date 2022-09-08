@@ -1,4 +1,3 @@
-import { data } from "autoprefixer";
 import { useState, useEffect } from "react";
 
 const Destination = ({ destinations }) => {
@@ -31,7 +30,7 @@ const Destination = ({ destinations }) => {
     fetch("http://localhost:9292/users")
       .then((response) => response.json())
       .then((data) => setUsers(data));
-  }, [data]);
+  }, []);
 
   // const id = users.length;
 
