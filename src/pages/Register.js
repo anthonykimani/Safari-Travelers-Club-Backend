@@ -26,7 +26,7 @@ export default function Register() {
     console.log(register["first_name"]);
     console.log(register);
     console.log(addUser);
-    fetch("http://localhost:9292/users", {
+    fetch("https://safari-travelers-server.herokuapp.com/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",

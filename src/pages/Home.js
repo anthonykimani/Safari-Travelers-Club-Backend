@@ -14,7 +14,7 @@ const Home = () => {
   const [reviews,setReviews] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:9292/destinations")
+    fetch("https://safari-travelers-server.herokuapp.com/destinations")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -38,7 +38,7 @@ const Home = () => {
   }
 
   useEffect(()=>{
-    fetch("http://localhost:9292/reviews")
+    fetch("https://safari-travelers-server.herokuapp.com/reviews")
     .then((response) => response.json())
     .then((data)=>setReviews(data))
   },[])

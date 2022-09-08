@@ -27,7 +27,7 @@ const Destination = ({ destinations }) => {
   });
 
   useEffect(() => {
-    fetch("http://localhost:9292/users")
+    fetch("https://safari-travelers-server.herokuapp.com/users")
       .then((response) => response.json())
       .then((data) => setUsers(data));
   }, []);
@@ -43,7 +43,7 @@ const Destination = ({ destinations }) => {
   function handleSubmit(event) {
     event.preventDefault();
     console.log(schedule);
-    fetch(`http://localhost:9292/schedules`, {
+    fetch(`https://safari-travelers-server.herokuapp.com/schedules`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
