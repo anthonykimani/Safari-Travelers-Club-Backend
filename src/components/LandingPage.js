@@ -2,7 +2,7 @@ import Navbar from "./Navbar";
 import HomeText from "./HomeText";
 import Destination from "./Destination";
 
-const LandingPage = ({destinations}) => {
+const LandingPage = ({destinations,usersLogin,credentials,setCredentials}) => {
   return (
     <div className="" id="landing">
       <img
@@ -10,7 +10,7 @@ const LandingPage = ({destinations}) => {
         alt=""
         className="absolute top-0 left-0 z-0 object-cover h-[130vh] w-screen"
       />
-      <Navbar />
+      <Navbar usersLogin={usersLogin} credentials={credentials} setCredentials={setCredentials}/> />
       <HomeText />
       <Destination destinations={destinations}/>
     </div>
