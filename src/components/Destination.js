@@ -39,7 +39,7 @@ const Destination = ({ destinations }) => {
     event.preventDefault();
     console.log(schedule);
     setUpdated(!updated);
-    fetch("http://localhost:9292/schedules", {
+    fetch("https://safari-travelers-server.herokuapp.com/schedules", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -51,7 +51,7 @@ const Destination = ({ destinations }) => {
   }
 
   useEffect(() => {
-    fetch("http://localhost:9292/schedules")
+    fetch("https://safari-travelers-server.herokuapp.com/schedules")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
