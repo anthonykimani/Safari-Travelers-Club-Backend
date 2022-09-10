@@ -21,7 +21,7 @@ const Destination = ({ destinations }) => {
   });
 
   useEffect(() => {
-    fetch("http://localhost:9292/users")
+    fetch("https://safari-travelers-server.herokuapp.com/users")
       .then((response) => response.json())
       .then((data) => setUsers(data));
   }, []);
