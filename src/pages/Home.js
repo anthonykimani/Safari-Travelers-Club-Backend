@@ -15,7 +15,7 @@ const Home = ({usersLogin,credentials,setCredentials,setDestinationId}) => {
 
   //fetch destinations
   useEffect(() => {
-    fetch("http://localhost:9292/destinations")
+    fetch("https://safari-travelers-server.herokuapp.com/destinations")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -42,7 +42,7 @@ const Home = ({usersLogin,credentials,setCredentials,setDestinationId}) => {
 
   //fetch reviews 
   useEffect(()=>{
-    fetch("http://localhost:9292/reviews")
+    fetch("https://safari-travelers-server.herokuapp.com/reviews")
     .then((response) => response.json())
     .then((data)=>setReviews(data))
   },[])

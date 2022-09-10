@@ -12,7 +12,7 @@ const BookDestination = ({
 
   //fetch destinations by id
   useEffect(() => {
-    fetch(`http://localhost:9292/destinations/${destinationId}`)
+    fetch(`https://safari-travelers-server.herokuapp.com/destinations/${destinationId}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);

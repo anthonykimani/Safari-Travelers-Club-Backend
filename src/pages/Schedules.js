@@ -6,7 +6,7 @@ const Schedules = ({ usersLogin, credentials, setCredentials}) => {
 
   //fetch schedule from server
   useEffect(() => {
-    fetch("http://localhost:9292/schedules")
+    fetch("https://safari-travelers-server.herokuapp.com/schedules")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
