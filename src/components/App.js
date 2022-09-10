@@ -4,6 +4,7 @@ import Home from '../pages/Home';
 import About from '../pages/About';
 import Register from '../pages/Register';
 import Schedules from '../pages/Schedules';
+import BookDestination from '../pages/BookDestination';
 import React, { useState, useEffect } from "react";
 
 function App() {
@@ -14,10 +15,22 @@ function App() {
     last_name:"..",
     email:".."
   });
+  const [destinationId,setDestinationId] = useState(1);
+  // const [destinations,setDestinations] = useState([]);
+
+  // //fetch destinations
+  // useEffect(() => {
+  //   fetch("http://localhost:9292/destinations")
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //       setDestinations(data);
+  //     });
+  // },[]);
 
   //fetch user data
   useEffect(() => {
-    fetch("https://safari-travelers-server.herokuapp.com/users")
+    fetch("http://localhost:9292/users")
       .then((response) => response.json())
       .then((data) => setUsersLogin(data));
   }, []);
@@ -26,10 +39,11 @@ function App() {
     <div className="">
       <Router>
         <Routes>
-          <Route path="/" element={<Home usersLogin={usersLogin} credentials={credentials} setCredentials={setCredentials}/>} />
+          <Route path="/" element={<Home usersLogin={usersLogin} credentials={credentials} setCredentials={setCredentials} destinationId={destinationId} setDestinationId={setDestinationId} />} />
           <Route path="/about" element={<About />} />
           <Route path="/register" element={<Register usersLogin={usersLogin} credentials={credentials} setCredentials={setCredentials}/>} />
           <Route path="/schedules" element={<Schedules usersLogin={usersLogin} credentials={credentials} setCredentials={setCredentials}/>} />
+          <Route path="/destination" element={<BookDestination  usersLogin={usersLogin} credentials={credentials} setCredentials={setCredentials} destinationId={destinationId} setDestinationId={setDestinationId}/>} />
         </Routes>
       </Router>
     </div>

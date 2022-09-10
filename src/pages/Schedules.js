@@ -1,12 +1,12 @@
 import Navbar from "../components/Navbar";
 import React, { useState, useEffect } from "react";
 
-const Schedules = ({ usersLogin, credentials, setCredentials }) => {
+const Schedules = ({ usersLogin, credentials, setCredentials}) => {
   const [schedules, setSchedules] = useState([]);
 
   //fetch schedule from server
   useEffect(() => {
-    fetch("https://safari-travelers-server.herokuapp.com/schedules")
+    fetch("http://localhost:9292/schedules")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);

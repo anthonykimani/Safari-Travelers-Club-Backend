@@ -8,14 +8,14 @@ import Journey from "../components/Journey";
 import Find from "../components/Find";
 // import Footer from "../components/Footer";
 
-const Home = ({usersLogin,credentials,setCredentials}) => {
-  const [destinations, setDestinations] = useState([]);
+const Home = ({usersLogin,credentials,setCredentials,setDestinationId}) => {
   const [filteredDestination, setFilteredDestination] = useState([]);
   const [reviews,setReviews] = useState([]);
+  const [destinations, setDestinations] = useState([]);
 
   //fetch destinations
   useEffect(() => {
-    fetch("https://safari-travelers-server.herokuapp.com/destinations")
+    fetch("http://localhost:9292/destinations")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -42,7 +42,7 @@ const Home = ({usersLogin,credentials,setCredentials}) => {
 
   //fetch reviews 
   useEffect(()=>{
-    fetch("https://safari-travelers-server.herokuapp.com/reviews")
+    fetch("http://localhost:9292/reviews")
     .then((response) => response.json())
     .then((data)=>setReviews(data))
   },[])
@@ -82,6 +82,8 @@ const Home = ({usersLogin,credentials,setCredentials}) => {
               price={destination.price}
               filteredReview={reviews}
               index={index}
+              id={destination.id}
+              setDestinationId={setDestinationId}
             />
           );
         })}
