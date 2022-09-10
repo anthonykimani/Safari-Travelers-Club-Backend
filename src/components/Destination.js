@@ -110,7 +110,7 @@ const Destination = ({ destinations }) => {
               <option value="sunday">sunday</option>
             </select>
             <select
-              name="user"
+              name="user_id"
               id="user"
               onChange={handleSchedule}
               className="h-10 border-solid border border-gray-400 rounded mx-2 outline-none hover:border-gray-500"

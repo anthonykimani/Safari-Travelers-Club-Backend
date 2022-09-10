@@ -2,10 +2,15 @@ import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
 const Navbar = ({ usersLogin, credentials, setCredentials }) => {
-  const [showSideBar,setShowSideBar] = useState(false);
+  const [showSideBar, setShowSideBar] = useState(false);
+  const [showSideBarDetails, setShowSideBarDetails] = useState(false);
 
-  function handleToggle(){
+  function handleToggle() {
     setShowSideBar(!showSideBar);
+  }
+
+  function handleDetails() {
+    setShowSideBarDetails(!showSideBarDetails);
   }
 
   // console.log(usersLogin);
@@ -45,18 +50,39 @@ const Navbar = ({ usersLogin, credentials, setCredentials }) => {
             </Link>
           </li>
           <div className="flex items-center">
-            <i class="bx bxs-user-circle bx-lg text-blue-400 pl-10" onClick={handleToggle}></i>
+            <i
+              class="bx bxs-user-circle bx-lg text-blue-400 pl-10"
+              onClick={handleToggle}
+            ></i>
           </div>
         </div>
       </div>
-      <div className="absolute right-0 bg-white z-50 h-[100%] w-[100%] flex-col items-center sm:w-[30%]" style={showSideBar?{display:"flex"}:{display:"none"}}>
-        <h3 className="font-bold">Profile</h3>
-        <ul className="font-bold text-gray-700">
+      <div
+        className="absolute right-0 bg-white z-50 h-[100%] w-[100%] flex-col items-center sm:w-[30%]"
+        style={showSideBar ? { display: "flex" } : { display: "none" }}
+      >
+        <h3
+          className="font-bold border border-gray-700 w-full text-center"
+          onClick={handleDetails}
+        >
+          Profile
+        </h3>
+        <ul
+          className="font-bold border text-gray-700 border-gray-700 w-full"
+          style={
+            showSideBarDetails ? { display: "none" } : { display: "block" }
+          }
+        >
           <li>firstname: {credentials.first_name}</li>
-          <li >lastname: {credentials.lastname}</li>
-          <li >email: {credentials.email}</li>
+          <li>lastname: {credentials.lastname}</li>
+          <li>email: {credentials.email}</li>
         </ul>
-
+        <h3
+          className="font-bold border border-gray-700 w-full text-center"
+          onClick={handleDetails}
+        >
+          <Link to={"/schedules"}>Schedules</Link>
+        </h3>
       </div>
     </>
   );

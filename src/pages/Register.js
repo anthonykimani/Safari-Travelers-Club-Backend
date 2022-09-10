@@ -8,6 +8,7 @@ export default function Register({usersLogin,credentials,setCredentials}){
   const [login, setLogin] = useState(false);
   const navigate = useNavigate();
 
+  //gets inputs from input fields
   function handleRegister(event) {
     const name = event.target.name;
     const value = event.target.value;
@@ -15,6 +16,7 @@ export default function Register({usersLogin,credentials,setCredentials}){
     return setRegister({ ...register, [name]: value.toLowerCase() });
   }
 
+  //handles Submit function
   function handleSubmit(event) {
     event.preventDefault();
     const addUser = {
@@ -41,7 +43,7 @@ export default function Register({usersLogin,credentials,setCredentials}){
   }
 
 
-
+  //maps through user tables rows and logs in a user when user login information is found
   function mappingThroughUserData() {
     const userData = usersLogin.filter((element) => {
       return (
@@ -59,6 +61,7 @@ export default function Register({usersLogin,credentials,setCredentials}){
       console.log(true);
       setLogin(!login);
       setCredentials({
+        id:userData[0].id,
         first_name: register.first_name,
         last_name: register.last_name,
         email: register.email,
