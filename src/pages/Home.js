@@ -6,12 +6,32 @@ import Options from "../components/Options";
 import TravelCard from "../components/TravelCard";
 import Journey from "../components/Journey";
 import Find from "../components/Find";
+import { useNavigate } from "react-router-dom";
 // import Footer from "../components/Footer";
 
-const Home = ({usersLogin,credentials,setCredentials,setDestinationId}) => {
+const Home = ({
+  usersLogin,
+  credentials,
+  setCredentials,
+  setDestinationId,
+  isLoggedIn,
+}) => {
   const [filteredDestination, setFilteredDestination] = useState([]);
-  const [reviews,setReviews] = useState([]);
+  const [reviews, setReviews] = useState([]);
+  const [fetchedSchedule, setFetchedSchedule] = useState([]);
   const [destinations, setDestinations] = useState([]);
+
+  const navigate = useNavigate();
+
+  //redirects to login page
+  useEffect(() => {
+    if (isLoggedIn === false) {
+      navigate("/register");
+    } else {
+      console.log("not logged in");
+    }
+  }, []);
+
 
   //fetch destinations
   useEffect(() => {
@@ -20,7 +40,7 @@ const Home = ({usersLogin,credentials,setCredentials,setDestinationId}) => {
       .then((data) => {
         console.log(data);
         setDestinations(data);
-        setFilteredDestination(destinations);
+        setFilteredDestination(data);
       });
   }, []);
 
@@ -40,14 +60,25 @@ const Home = ({usersLogin,credentials,setCredentials,setDestinationId}) => {
     setFilteredDestination(filtered);
   }
 
-  //fetch reviews 
-  useEffect(()=>{
+  //fetch reviews
+  useEffect(() => {
     fetch("https://safari-travelers-server.herokuapp.com/reviews")
-    .then((response) => response.json())
-    .then((data)=>setReviews(data))
-  },[])
+      .then((response) => response.json())
+      .then((data) => setReviews(data));
+  }, []);
 
-  
+  //fetches the schedules
+  useEffect(() => {
+    fetch("https://safari-travelers-server.herokuapp.com/schedules")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setFetchedSchedule(data);
+      });
+  }, []);
+
+  console.log(fetchedSchedule);
+
   // function handleRatings(event){
   //   console.log(reviews);
   //   const ratings = reviews.filter((element)=>{
@@ -58,9 +89,15 @@ const Home = ({usersLogin,credentials,setCredentials,setDestinationId}) => {
 
   return (
     <div className="bg-indigo-50">
-      <LandingPage destinations={destinations} usersLogin={usersLogin}  credentials={credentials} setCredentials={setCredentials}/>/>
+      <LandingPage
+        destinations={destinations}
+        usersLogin={usersLogin}
+        credentials={credentials}
+        setCredentials={setCredentials}
+      />
+      />
       <Phrase />
-      <div className="flex  flex-col xsm:flex-row justify-center">
+      <div className="flex flex-wrap xsm:flex-row justify-center">
         <Options name={"all"} filter={fetchAll} />
         <Options name={"savannah"} filter={filterDestination} />
         <Options name={"jungle"} filter={filterDestination} />
@@ -72,7 +109,7 @@ const Home = ({usersLogin,credentials,setCredentials,setDestinationId}) => {
         <Options name={5} filter={handleRatings} /> */}
       </div>
       <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3">
-        {filteredDestination.map((destination,index) => {
+        {filteredDestination.map((destination, index) => {
           console.log(destination.image);
           return (
             <TravelCard

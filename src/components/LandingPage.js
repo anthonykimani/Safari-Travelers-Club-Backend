@@ -8,7 +8,7 @@ const LandingPage = ({destinations,usersLogin,credentials,setCredentials}) => {
       <img
         src={process.env.PUBLIC_URL + "/safari-ambience.jpg"}
         alt=""
-        className="absolute top-0 left-0 z-0 object-cover h-[130vh] w-screen"
+        className="absolute top-0 left-0 z-0 object-cover object-left w-[full]  h-[130vh] xsm:object-cover xsm:h-[130vh]  xsm:w-screen"
       />
       <Navbar usersLogin={usersLogin} credentials={credentials} setCredentials={setCredentials}/> />
       <HomeText />

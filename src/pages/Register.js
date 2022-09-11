@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
 
-export default function Register({usersLogin,credentials,setCredentials}){
+export default function Register({usersLogin,credentials,setCredentials,isLoggedIn,setIsLoggedIn}){
   const [showpass, setShowPass] = useState(false);
   const [register, setRegister] = useState("");
   const [login, setLogin] = useState(false);
@@ -67,6 +67,7 @@ export default function Register({usersLogin,credentials,setCredentials}){
         email: register.email,
         password:register.password
       })
+      setIsLoggedIn(true);
       navigate("/");
       return true;
     }

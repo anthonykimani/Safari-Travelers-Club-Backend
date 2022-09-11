@@ -1,8 +1,9 @@
 import Navbar from "../components/Navbar";
 import React, { useState, useEffect } from "react";
 
-const Schedules = ({ usersLogin, credentials, setCredentials}) => {
+const Schedules = ({ usersLogin, credentials, setCredentials }) => {
   const [schedules, setSchedules] = useState([]);
+  const [booked, setBooked] = useState(true);
 
   //fetch schedule from server
   useEffect(() => {
@@ -12,7 +13,7 @@ const Schedules = ({ usersLogin, credentials, setCredentials}) => {
         console.log(data);
         setSchedules(data);
       });
-  }, []);
+  }, [booked]);
 
   //filter schedules to return schedules matching specific user
   const userSchedules = schedules.filter((element) => {
@@ -21,6 +22,13 @@ const Schedules = ({ usersLogin, credentials, setCredentials}) => {
   });
 
   console.log(userSchedules);
+
+  function handleCancel(id) {
+    setBooked(false)
+    fetch(`https://safari-travelers-server.herokuapp.com/schedules/${id}`, {
+      method: "DELETE",
+    });
+  }
 
   return (
     <>
@@ -45,7 +53,20 @@ const Schedules = ({ usersLogin, credentials, setCredentials}) => {
                 Safari Scheduled for {element.day} at {element.time}{" "}
               </h3>
               <hr className="w-full bg-gray-400" />
-              <h3 className="text-xl py-5 font-bold"><span className="text-gray-800">${element.destination.price} </span>per trip</h3>
+              <h3 className="text-xl py-5 font-bold">
+                <span className="text-gray-800">
+                  ${element.destination.price}{" "}
+                </span>
+                per trip
+              </h3>
+              <div className="flex justify-between flex-col sm:flex-row sm:w-[500px] w-[200px]">
+                <button
+                  className="w-[150px] my-5 text-white bg-red-500 hover:bg-red-700 px-1 xsm:px-5 py-2 font-bold xxs:text-xs xsm:text-sm"
+                  onClick={() => handleCancel(element.id)}
+                >
+                  Cancel
+                </button>
+              </div>
             </div>
           );
         })}

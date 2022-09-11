@@ -33,10 +33,10 @@ const Navbar = ({ usersLogin, credentials, setCredentials }) => {
           </li>
           <li>
             <Link
-              to={"/about"}
+              to={"/schedules"}
               className="m-2 font-mono xxs:text-xs xsm:text-sm"
             >
-              About
+              Schedule
             </Link>
           </li>
         </ul>
