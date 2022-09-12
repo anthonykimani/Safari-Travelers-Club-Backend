@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# Safari-Travellers-App
+ ## By Anthony Kimani
+ ## Table of Content
+ - [Description](#description)
+ - [Link To Backend Ruby Server Repository]
+ - [Deliverables](#deliverables)
+ - [Requirements](#requirements)
+ - [Live Link](#livelink)
+ - [Technology  Used](#technology-Used)
+ - [Licence](#licence)
+ - [Authors Info](#Authors-Info)
+ ## Description
+ 
+A `Safari Travelers Club` where Tourists can discover their next Safari Adventure across Africa  and set up travel plans conveniently from the Application.
+ 
+[Go Back to the top](#Safari-Travellers-App)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Link To Backend Ruby Server Repository
 
-## Available Scripts
+- Click this link to view the Backend Server Repository made with Ruby , Sinatra and Active-Record [https://github.com/anthonykimani/Safari-Travellers-Club-Backend]
 
-In the project directory, you can run:
+## Deliverables
 
-### `npm start`
+1. As  a User I should be able to choose my next travel plans , schedules and cancel at any time.
+2. As a User I should be able to explore a wide list of travel plans , filter through travel options and destinations.
+3. As a User I should be able to find the most reviewed destinations and sort ratings.
+4. As a User I should be able to see friends traveling to the every destinations.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[Go Back to the top](#Safari-Travellers-App)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ ###  Requirements
+ 
+ * Access to  a computer,phone or any other device that has a browser
+ * Internet Connectivity
+ * Visit the website on your preferred browser
+ ****
+[Go Back to the top](#Safari-Travellers-App)
+ 
+### Live Link
 
-### `npm test`
+- Click this link to view the live application [https://safari-travellers-club-frontend.vercel.app/]
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### Technology  Used
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* REACT JS - A JavaScript Library , used to create the `UI structure and functionality`.
+* CSS - which was `used to style the User Interface`.
+* JavaScript - A programming language , `used to add interactivity to the web app`.
+* SQLITE - a Database Management System was used to Store the `Users , Destinations , Schedules  and Reviews.`
+* Ruby - a Programming language was used to  `build the server and data-processing application, with sinatra and active Record`
+* Fetch API - An API used to `send and receive Data from the Server to the Client`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+[Go Back to the top](#Safari-Travellers-App)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Known Bugs
 
-### `npm run eject`
+* User Interface needs cleaning up.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## MIT License
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Copyright (c) [2022] [Safari-Travellers-App] 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-## Learn More
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Authors Info
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Gmail - [Anthony Kimani](kimaniantoni@gmail.com)
 
-### Code Splitting
+[Go Back to the top](#Safari-Travellers-App)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
