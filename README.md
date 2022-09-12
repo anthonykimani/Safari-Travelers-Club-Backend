@@ -2,7 +2,8 @@
  ## By Anthony Kimani
  ## Table of Content
  - [Description](#description)
- - [Link To Backend Ruby Server Repository]
+ - [Link To Backend Ruby Server Repository](#Link To Backend Ruby Server Repository)
+ - [Login Infomation](#Login Information)
  - [Deliverables](#deliverables)
  - [Requirements](#requirements)
  - [Live Link](#livelink)
@@ -19,6 +20,24 @@ A `Safari Travelers Club` where Tourists can discover their next Safari Adventur
 
 - Click this link to view the Backend Server Repository made with Ruby , Sinatra and Active-Record [https://github.com/anthonykimani/Safari-Travellers-Club-Backend]
 
+## Login Information
+
+- Please the following created User account to Login to the Application and see how different users can schedule safaris
+1. firstname - `bruce` 
+   lastname - `ontoo`
+   email - `bruce@gmail.com`
+   password - `password`
+   
+2. firstname - `joy` 
+   lastname - `mwas`
+   email - `joy@gmail.com`
+   password - `password`
+   
+3. firstname - `mark` 
+   lastname - `olo`
+   email - `mark@gmail.com`
+   password - `password`
+   
 ## Deliverables
 
 1. As  a User I should be able to choose my next travel plans , schedules and cancel at any time.
