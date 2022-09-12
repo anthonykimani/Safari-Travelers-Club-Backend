@@ -2,14 +2,14 @@
  ## By Anthony Kimani
  ## Table of Content
  - [Description](#description)
- - [Link To Backend Ruby Server Repository](#Link To Backend Ruby Server Repository)
- - [Login Infomation](#Login Information)
+ - [Link To Backend Ruby Server Repository](#link-to-backend-ruby-server-repository)
+ - [Login Infomation](#login-information)
  - [Deliverables](#deliverables)
  - [Requirements](#requirements)
- - [Live Link](#livelink)
- - [Technology  Used](#technology-Used)
+ - [Live Link](#live-link)
+ - [Technology  Used](#technology-used)
  - [Licence](#licence)
- - [Authors Info](#Authors-Info)
+ - [Authors Info](#authors-info)
  ## Description
  
 A `Safari Travelers Club` where Tourists can discover their next Safari Adventure across Africa  and set up travel plans conveniently from the Application.
@@ -97,7 +97,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-## Authors Info
+## Authors-Info
 
 Gmail - [Anthony Kimani](kimaniantoni@gmail.com)
 
