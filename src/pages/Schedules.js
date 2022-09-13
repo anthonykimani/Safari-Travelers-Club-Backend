@@ -39,6 +39,16 @@ const Schedules = ({ usersLogin, credentials, setCredentials }) => {
   return (
     <>
       <Navbar credentials={credentials} setCredentials={setCredentials} />
+      <div
+        className="m-5 bg-white h-[50%] justify-around items-center"
+      >
+        <h1>
+          Schedules created will appear here.
+        </h1>
+        <h2 onClick={redirectToHome} className="underline text-blue-500">
+          Home
+        </h2>
+      </div>
       <div className="bg-indigo-50 flex flex-col items-center">
         {userSchedules.map((element) => {
           return (
@@ -76,18 +86,6 @@ const Schedules = ({ usersLogin, credentials, setCredentials }) => {
             </div>
           );
         })}
-      </div>
-      <div
-        style={booked ? { display: "none" } : { display: "flex" }}
-        className="m-5 p-5 bg-white h-[50%] justify-around items-center"
-      >
-        <h1>
-          No Schedules have been created , go back to home destinations to
-          select schedule{" "}
-        </h1>
-        <h2 onClick={redirectToHome} className="underline text-blue-500">
-          Home
-        </h2>
       </div>
     </>
   );
