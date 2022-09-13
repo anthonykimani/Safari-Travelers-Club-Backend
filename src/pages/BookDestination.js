@@ -15,8 +15,8 @@ const BookDestination = ({
   const [comment, setComment] = useState([]);
   const [hasFriends, setHasFriends] = useState(false);
   const [schedule, setSchedule] = useState({
-    day: "NULL",
-    time: "NULL",
+    day: "sunday",
+    time: "4am",
     user_id: credentials.id,
     destination_id: destinationId,
   });

@@ -43,7 +43,7 @@ const Navbar = ({ usersLogin, credentials, setCredentials }) => {
         <div className="flex items-center justify-around">
           <li>
             <Link
-              to={"/register"}
+              to={"/login"}
               className="text-white bg-blue-500 hover:bg-blue-700 px-1 xsm:px-5 py-2 font-bold xxs:text-xs xsm:text-sm"
             >
               Login

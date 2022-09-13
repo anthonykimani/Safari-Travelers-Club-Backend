@@ -15,23 +15,25 @@ const Home = ({
   setCredentials,
   setDestinationId,
   isLoggedIn,
+  setIsLoggedIn,
 }) => {
   const [filteredDestination, setFilteredDestination] = useState([]);
   const [reviews, setReviews] = useState([]);
+  const [login, setLogin] = useState(false);
   const [fetchedSchedule, setFetchedSchedule] = useState([]);
   const [destinations, setDestinations] = useState([]);
+  const [users, setUsers] = useState([]);
 
   const navigate = useNavigate();
 
   //redirects to login page
   useEffect(() => {
     if (isLoggedIn === false) {
-      navigate("/register");
+      navigate("/login");
     } else {
       console.log("not logged in");
     }
   }, []);
-
 
   //fetch destinations
   useEffect(() => {
@@ -87,6 +89,45 @@ const Home = ({
   //   console.log(ratings)
   // }
 
+  function mappingThroughUserData() {
+    console.log(users);
+    console.log(credentials);
+    const userData = users.filter((element) => {
+      return (
+        element.email == credentials.email &&
+        element.password == credentials.password &&
+        element.first_name == credentials.first_name &&
+        element.last_name == credentials.last_name
+      );
+    });
+    console.log(userData);
+    if (userData.length == 0) {
+      console.log(false);
+      return false;
+    } else {
+      setCredentials({
+        id: userData[0].id,
+        first_name: credentials.first_name,
+        last_name: credentials.last_name,
+        email: credentials.email,
+        password: credentials.password,
+      });
+      return true;
+    }
+  }
+
+  useEffect(() => {
+    fetch("https://safari-travelers-server.herokuapp.com/users")
+      .then((response) => response.json())
+      .then((data) => {
+        return setUsers(data);
+      });
+  }, []);
+
+  useEffect(() => {
+    mappingThroughUserData();
+  }, [users]);
+
   return (
     <div className="bg-indigo-50">
       <LandingPage
@@ -94,7 +135,6 @@ const Home = ({
         usersLogin={usersLogin}
         credentials={credentials}
         setCredentials={setCredentials}
-      />
       />
       <Phrase />
       <div className="flex flex-wrap xsm:flex-row justify-center">

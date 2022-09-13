@@ -1,9 +1,11 @@
 import Navbar from "../components/Navbar";
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Schedules = ({ usersLogin, credentials, setCredentials }) => {
   const [schedules, setSchedules] = useState([]);
   const [booked, setBooked] = useState(true);
+  const navigate = useNavigate();
 
   //fetch schedule from server
   useEffect(() => {
@@ -24,10 +26,14 @@ const Schedules = ({ usersLogin, credentials, setCredentials }) => {
   console.log(userSchedules);
 
   function handleCancel(id) {
-    setBooked(false)
+    setBooked(false);
     fetch(`https://safari-travelers-server.herokuapp.com/schedules/${id}`, {
       method: "DELETE",
     });
+  }
+
+  function redirectToHome() {
+    navigate("/");
   }
 
   return (
@@ -70,6 +76,18 @@ const Schedules = ({ usersLogin, credentials, setCredentials }) => {
             </div>
           );
         })}
+      </div>
+      <div
+        style={booked ? { display: "none" } : { display: "flex" }}
+        className="m-5 p-5 bg-white h-[50%] justify-around items-center"
+      >
+        <h1>
+          No Schedules have been created , go back to home destinations to
+          select schedule{" "}
+        </h1>
+        <h2 onClick={redirectToHome} className="underline text-blue-500">
+          Home
+        </h2>
       </div>
     </>
   );
