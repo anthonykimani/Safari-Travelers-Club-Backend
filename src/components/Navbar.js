@@ -41,7 +41,7 @@ const Navbar = ({ usersLogin, credentials, setCredentials }) => {
           </li>
         </ul>
         <div className="flex items-center justify-around">
-          <li>
+          <li className="list-none">
             <Link
               to={"/login"}
               className="text-white bg-blue-500 hover:bg-blue-700 px-1 xsm:px-5 py-2 font-bold xxs:text-xs xsm:text-sm"
@@ -51,7 +51,7 @@ const Navbar = ({ usersLogin, credentials, setCredentials }) => {
           </li>
           <div className="flex items-center">
             <i
-              class="bx bxs-user-circle bx-lg text-blue-400 pl-10"
+              class="bx bxs-user-circle bx-lg text-blue-400 pl-10 xxs:pl-1"
               onClick={handleToggle}
             ></i>
           </div>
