@@ -83,18 +83,21 @@ export default function Login({
     }
   }
   return (
+    // lg:px-10 sm:px-6 sm:py-10 px-2 py-6
     <>
       <Navbar credentials={credentials} setCredentials={setCredentials} />
       <div className="bg-indigo-50">
         <div className="xl:px-20 md:px-10 sm:px-6 px-4 md:py-12 py-9 2xl:mx-auto 2xl:container md:flex items-center justify-center">
-          <div className=" md:hidden sm:mb-8 mb-6">
-            <h2></h2>
-          </div>
-          <div className="bg-white shadow-lg rounded  md:w-[100%] md:max-w-[800px] lg:w-[100%] lg:max-w-[1000px] lg:px-10 sm:px-6 sm:py-10 px-2 py-6 flex flex-col lg:flex-row">
-            {/* <div className="w-[500px]">
-            <img src={process.env.PUBLIC_URL + "/antelope-sunset.jpg"} alt="" className="hidden lg:block w-[80%] mx-5"/>
-           </div> */}
-            <div className="lg:w-[1000px]">
+          <div className=" md:hidden sm:mb-8 mb-6"></div>
+          <div className="bg-white shadow-lg rounded  md:w-[100%] md:max-w-[800px] lg:w-[100%] lg:max-w-[1000px] flex flex-col lg:flex-row">
+            <div className="md:w-[800px]  lg:w-[500px]">
+              <img
+                src={process.env.PUBLIC_URL + "/kilimanjaro.jpg"}
+                alt=""
+                className=" lg:w-[100%] lg:h-[570px]"
+              />
+            </div>
+            <div className="lg:w-[400px] flex flex-col items-center lg:px-10 sm:px-6 sm:py-10 xxs:py-4">
               <p
                 tabIndex={0}
                 className="focus:outline-none text-2xl font-extrabold leading-6 text-gray-800"
@@ -115,7 +118,10 @@ export default function Login({
                   Sign up here
                 </a>
               </p>
-              <form onSubmit={handleSubmit} className="mt-5">
+              <form
+                onSubmit={handleSubmit}
+                className="xxs:w-[250px] xsm:w-[400px] sm:w-[500px] md:w-[600px] lg:w-[300px] mt-5"
+              >
                 <div>
                   <label
                     htmlFor="firstname"
