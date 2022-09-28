@@ -47,7 +47,7 @@ const TravelCard = ({
   return (
     <div className="rounded-lg bg-white shadow-lg overflow-hidden m-2" onClick={handleBookDestination}>
       <div className="w-[96] h-[102] overflow-hidden">
-        <img src={process.env.PUBLIC_URL + img} alt="" className=""  />
+        <img src={process.env.PUBLIC_URL + img} alt="" className="sm:w-[600px] h-[400px] w-[450px] object-cover"  />
       </div>
       <h3 className="font-bold text-2xl m-4">{name}</h3>
       <div className="flex flex-col justify-between text-gray-500 m-4">

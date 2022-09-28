@@ -183,12 +183,12 @@ const BookDestination = ({
             </select>
           </div>
           <hr className="w-full bg-gray-400" />
-          <button className="w-[200px] my-5 text-gray-500 bg-white border-2  hover:bg-lightgray-700 px-0 xsm:px-5 py-2 font-bold xxs:text-xs xsm:text-sm" onClick={seeFriends}>See Friends Going</button>
+          {/* <button className="w-[200px] my-5 text-gray-500 bg-white border-2  hover:bg-lightgray-700 px-0 xsm:px-5 py-2 font-bold xxs:text-xs xsm:text-sm" onClick={seeFriends}>See Friends Going</button>
           <div style={hasFriends ? { display: "block" } : { display: "none" }}>
             {fetchedSchedule.map((element) => {
               return <h3>{element.user.first_name} is also comming along</h3>;
             })}
-          </div> 
+          </div>  */}
           <hr className="w-full bg-gray-400" />
           <div className="rounded-lg bg-white shadow-lg overflow-hidden">
             {comment.map((element) => {

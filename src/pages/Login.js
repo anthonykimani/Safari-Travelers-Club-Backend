@@ -110,7 +110,6 @@ export default function Login({
               >
                 Dont have account?{" "}
                 <a
-                  href="javascript:void(0)"
                   className="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none text-gray-800 cursor-pointer"
                   onClick={handleSignUp}
                 >
@@ -206,7 +205,7 @@ export default function Login({
                     htmlFor="myInput"
                     className="text-sm font-medium leading-none text-red-700"
                   >
-                    Please Login
+                    Please Login or Signup if you don't have an account
                   </label>
                 </div>
                 <div

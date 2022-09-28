@@ -82,7 +82,14 @@ export default function Signup({
     navigate("/");
     return true;
     // }
+
   }
+
+      //redirects to sign up page
+    function handleLogin() {
+    navigate("/login");
+    }
+
   return (
     <>
       <Navbar credentials={credentials} setCredentials={setCredentials} />
@@ -112,8 +119,8 @@ export default function Signup({
               >
                 Do you an have account?{" "}
                 <a
-                  href="javascript:void(0)"
                   className="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none text-gray-800 cursor-pointer"
+                  onClick={handleLogin}
                 >
                   {" "}
                   Login here
@@ -204,7 +211,7 @@ export default function Signup({
                     htmlFor="myInput"
                     className="text-sm font-medium leading-none text-red-700"
                   >
-                    Please SignUp
+                    Please SignUp or Login if you have an account
                   </label>
                 </div>
                 <div
