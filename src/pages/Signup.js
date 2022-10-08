@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
+import { LoginContext } from "../contexts/LoginContext";
 
-export default function Signup({
-  usersLogin,
-  credentials,
-  setCredentials,
-  isLoggedIn,
-  setIsLoggedIn,
-}) {
+export default function Signup() {
+  const { setIsLoggedIn } = useContext(LoginContext);
+  const { isLoggedIn } = useContext(LoginContext);
+  const { usersLogin } = useContext(LoginContext);
+  // const {  } = useContext(LoginContext);
+  const { credentials } = useContext(LoginContext);
+  const { setCredentials } = useContext(LoginContext);
+
   const [showpass, setShowPass] = useState(false);
   const [register, setRegister] = useState("");
   const [login, setLogin] = useState(false);
@@ -92,7 +94,7 @@ export default function Signup({
 
   return (
     <>
-      <Navbar credentials={credentials} setCredentials={setCredentials} />
+      <Navbar />
       <div className="bg-indigo-50">
         <div className="xl:px-20 md:px-10 sm:px-6 px-4 md:py-12 py-9 2xl:mx-auto 2xl:container md:flex items-center justify-center">
           <div className=" md:hidden sm:mb-8 mb-6">

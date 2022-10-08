@@ -7,6 +7,7 @@ import Signup from '../pages/Signup';
 import Schedules from '../pages/Schedules';
 import BookDestination from '../pages/BookDestination';
 import React, { useState, useEffect } from "react";
+import { LoginContext } from '../contexts/LoginContext';
 
 function App() {
   const [usersLogin, setUsersLogin] = useState([]);
@@ -29,16 +30,18 @@ function App() {
 
   return (
     <div className="">
+      <LoginContext.Provider value={{isLoggedIn, setIsLoggedIn, destinationId, setDestinationId, usersLogin, setUsersLogin, credentials,setCredentials}}>
       <Router>
         <Routes>
-          <Route path="/" element={<Home usersLogin={usersLogin} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} credentials={credentials} setCredentials={setCredentials} destinationId={destinationId} setDestinationId={setDestinationId} />} />
+          <Route path="/" element={<Home   />} />
           <Route path="/about" element={<About />} />
-          <Route path="/login" element={<Login usersLogin={usersLogin} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} credentials={credentials} setCredentials={setCredentials}/>} />
-          <Route path="/signup" element={<Signup usersLogin={usersLogin} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} credentials={credentials} setCredentials={setCredentials}/>} />
-          <Route path="/schedules" element={<Schedules usersLogin={usersLogin} credentials={credentials} setCredentials={setCredentials}/>} />
-          <Route path="/destination" element={<BookDestination  usersLogin={usersLogin} credentials={credentials} setCredentials={setCredentials} destinationId={destinationId} setDestinationId={setDestinationId}/>} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/schedules" element={<Schedules />} />
+          <Route path="/destination" element={<BookDestination   />} />
         </Routes>
       </Router>
+      </LoginContext.Provider>
     </div>
   )
 }

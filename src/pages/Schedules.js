@@ -1,11 +1,17 @@
 import Navbar from "../components/Navbar";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { LoginContext } from "../contexts/LoginContext";
 
-const Schedules = ({ usersLogin, credentials, setCredentials }) => {
+const Schedules = () => {
   const [schedules, setSchedules] = useState([]);
   const [booked, setBooked] = useState(true);
   const navigate = useNavigate();
+
+  const { usersLogin } = useContext(LoginContext);
+  // const {  } = useContext(LoginContext);
+  const { credentials } = useContext(LoginContext);
+  const { setCredentials } = useContext(LoginContext);
 
   //fetch schedule from server
   useEffect(() => {
@@ -38,13 +44,9 @@ const Schedules = ({ usersLogin, credentials, setCredentials }) => {
 
   return (
     <>
-      <Navbar credentials={credentials} setCredentials={setCredentials} />
-      <div
-        className="m-5 bg-white h-[50%] justify-around items-center"
-      >
-        <h1>
-          Schedules created will appear here.
-        </h1>
+      <Navbar />
+      <div className="m-5 bg-white h-[50%] justify-around items-center">
+        <h1>Schedules created will appear here.</h1>
         <h2 onClick={redirectToHome} className="underline text-blue-500">
           Home
         </h2>

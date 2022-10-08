@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { LoginContext } from "../contexts/LoginContext";
 
-const Navbar = ({ usersLogin, credentials, setCredentials }) => {
+const Navbar = () => {
   const [showSideBar, setShowSideBar] = useState(false);
   const [showSideBarDetails, setShowSideBarDetails] = useState(false);
+  const { credentials } = useContext(LoginContext);
 
   function handleToggle() {
     setShowSideBar(!showSideBar);

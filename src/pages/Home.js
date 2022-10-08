@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
 import LandingPage from "../components/LandingPage";
 import Phrase from "../components/Phrase";
@@ -7,16 +7,21 @@ import TravelCard from "../components/TravelCard";
 import Journey from "../components/Journey";
 import Find from "../components/Find";
 import { useNavigate } from "react-router-dom";
+import { LoginContext } from "../contexts/LoginContext";
+
 // import Footer from "../components/Footer";
 
-const Home = ({
-  usersLogin,
-  credentials,
-  setCredentials,
-  setDestinationId,
-  isLoggedIn,
-  setIsLoggedIn,
-}) => {
+
+const Home = () => {
+  const { setIsLoggedIn } = useContext(LoginContext);
+  const { isLoggedIn } = useContext(LoginContext);
+  const { destinationId } = useContext(LoginContext);
+  const { setDestinationId } = useContext(LoginContext);
+  const { usersLogin } = useContext(LoginContext);
+  // const {  } = useContext(LoginContext);
+  const { credentials } = useContext(LoginContext);
+  const { setCredentials } = useContext(LoginContext);
+
   const [filteredDestination, setFilteredDestination] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [login, setLogin] = useState(false);
@@ -130,12 +135,7 @@ const Home = ({
 
   return (
     <div className="bg-indigo-50">
-      <LandingPage
-        destinations={destinations}
-        usersLogin={usersLogin}
-        credentials={credentials}
-        setCredentials={setCredentials}
-      />
+      <LandingPage destinations={destinations}/>
       <Phrase />
       <div className="flex flex-wrap xsm:flex-row justify-center">
         <Options name={"all"} filter={fetchAll} />

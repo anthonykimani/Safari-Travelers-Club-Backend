@@ -1,13 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Navbar from "../components/Navbar";
+import { LoginContext } from "../contexts/LoginContext";
 
 const BookDestination = ({
-  usersLogin,
-  credentials,
-  setCredentials,
-  destinationId,
-  setDestinationId,
+  // usersLogin,
+  // credentials,
+  // setCredentials,
+  // destinationId,
+  // setDestinationId,
 }) => {
+  const { destinationId } = useContext(LoginContext);
+  // const {  } = useContext(LoginContext);
+  const { credentials } = useContext(LoginContext);
+
   const [destination, setDestination] = useState({});
   const [booked, setBooked] = useState(false);
   const [fetchedSchedule, setFetchedSchedule] = useState([]);
@@ -115,7 +120,7 @@ const BookDestination = ({
 
   return (
     <div>
-      <Navbar credentials={credentials} setCredentials={setCredentials} />
+      <Navbar />
       <div className="bg-indigo-50 flex flex-col items-center">
         <div className="flex flex-col bg-white p-5 m-5 rounded-md text-gray-700 sm:w-[90%]">
           <h1 className="text-2xl py-2 font-bold">{destination.name}</h1>
